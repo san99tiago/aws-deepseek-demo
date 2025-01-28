@@ -31,13 +31,20 @@ To Manu Mishra for his blog that inspired this project:
   - `make install` --> This will download the model files locally, prior to deployment.
   - IMPORTANT: Depending on bandwidth, it could take 15-30 mins.
 
-3. Upload model files to S3:
+3. Deploy CDK infrastructure:
+
+- `poetry shell`
+- `poetry install`
+- --> Load AWS Credentials to the shell/terminal
+- `cdk deploy` --> This will deploy a CloudFormation Stack
+
+4. Upload model files to S3:
 
 - Run the following Python script that uses multi-part uploads:
 - `python ai-model/upload_ai_model.py`
   - IMPORTANT: Depending on bandwidth, it could take 15-30 mins.
 
-4. Import Custom Model:
+5. Import Custom Model:
 
 - NOTE: As of January 2025, the APIs/SDKs are NOT ready to be used... So this will be manually for now!
 - Go to Amazon Bedrock Service in the Console.
@@ -45,7 +52,7 @@ To Manu Mishra for his blog that inspired this project:
 - Provide the S3 URI where your model files are stored (e.g., s3://bedrock-custom-models-12345/custom-model).
 - Follow the steps to complete the import process.
 
-5. Have fun and interact with the model.
+6. Have fun and interact with the model.
 
 - You can use this script to play/interact with the model:
   - `python validation/model_interaction.py`
